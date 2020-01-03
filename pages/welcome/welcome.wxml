@@ -1,0 +1,8 @@
+<view class="container">
+  <image class="poster" src="/image/avatar/avatar.png"></image>
+  <text class="app-name">Banana</text>
+
+  <view class="in-container">
+    <text class="in">进入Banana</text>
+  </view>
+</view>

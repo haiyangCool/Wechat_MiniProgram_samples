@@ -1,0 +1,37 @@
+page {
+  background-color: #ECC0A8;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ECC0A8;
+}
+.poster {
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 20rpx;
+}
+
+.app-name {
+  margin-top: 120rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: black
+}
+
+.in-container {
+  margin-top: 220rpx;
+  border: 1px solid gray;
+  width: 180rpx;
+  height: 90rpx;
+  border-radius: 5px;
+  text-align: center;
+
+}
+.in {
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  color: orange;
+}

@@ -1,0 +1,23 @@
+<view class="container">
+  <swiper indicator-dots="true" circular="true">
+    <swiper-item>
+      <image src="/image/post/contact.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/image/post/file.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/image/post/short.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/image/post/watch.png"></image>
+    </swiper-item>
+  </swiper>
+  <view class="post-container">
+    <view class="post-author">
+      <text>Banana</text>
+      <text>2019.12.26</text>
+    </view>
+    <view></view>
+  </view>
+</view>
