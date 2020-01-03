@@ -1,7 +1,7 @@
 <view class="container">
   <swiper indicator-dots="true" circular="true">
     <swiper-item>
-      <image src="/image/post/contact.png"></image>
+      <image src="/image/post/contact.png" mode="aspectFill"></image>
     </swiper-item>
     <swiper-item>
       <image src="/image/post/file.png"></image>
@@ -14,10 +14,47 @@
     </swiper-item>
   </swiper>
   <view class="post-container">
-    <view class="post-author">
-      <text>Banana</text>
-      <text>2019.12.26</text>
+
+    <view class="post-author-data">
+      <image src="/image/post/watch.png"></image>
+      <text>2020年1月3日</text>
     </view>
-    <view></view>
+
+    <text class="post-title">小时候的冰糕和冰棍</text>
+    <image class="post-image" src="/image/post/contact.png" mode="aspectFit"></image>
+    <text class="post-content">以前的冰糕和冰棍就好像现在的老北京冰棍，颜色透明一毛或者5分钱一根，时过境迁……</text>
+
+    
+    <view class="post-like">
+      <image src="/image/post/short.png"></image>
+      <text>99</text>
+      <image src="/image/post/watch.png"></image>
+      <text>12</text>
+      <image src="/image/post/file.png"></image>
+      <text>10</text>
+
+  </view>
+
+  <view class="post-container">
+      </view>
+
+        <view class="post-author-data">
+      <image src="/image/post/watch.png"></image>
+      <text>2019年12月31日</text>
+    </view>
+
+    <text class="post-title">河里游泳</text>
+    <image class="post-image" src="/image/post/watch.png" mode="aspectFit"></image>
+    <text class="post-content">小时候，家门前有一个清澈的小池塘，大人们在岸边洗着衣服，水中央一群小孩子在游泳,旁边漂浮着几个汽车的充气轮胎。</text>
+
+    
+    <view class="post-like">
+      <image src="/image/post/short.png"></image>
+      <text>109</text>
+      <image src="/image/post/watch.png"></image>
+      <text>32</text>
+      <image src="/image/post/file.png"></image>
+      <text>12</text>
+    </view>
   </view>
 </view>

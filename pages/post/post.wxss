@@ -1,31 +1,85 @@
 page {
-  background-color: #ECC0A8;
+  background-color: #fff;
 }
 .container{
   display: flex;
   flex-direction: column;
-  background-color: #ECC0A8;
+  background-color: #fff;
 }
 swiper {
   width: 100%;
   height: 600rpx;
-  background-color: white;
+  background-color: #fff;
+  margin-top: 0px;
 }
+/*swiper image的大小设置为何容器一样*/
 swiper image {
   width: 100%;
   height: 600rpx;
 }
 
 .post-container {
-  width: 100%;
-  height: 400rpx;
-  background-color: gray;
+  flex-direction: column;
+  display: flex;
+  margin: 20rpx 0 40rpx;
+  background-color: #fff;
+  border-bottom:  1px solid #cdeded;
+  border-top: 1px solid #cdeded;
+  padding-bottom: 5px;
 }
 
-.post-author {
-  height: 400rpx;
-  margin: 30rpx 0 20rpx 10rpx;
+.post-author-data {
+  margin: 10rpx 0 20rpx 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
 } 
+.post-author-data image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.post-author-data text {
+  margin-left: 20rpx;
+}
+
+.post-image {
+  width: 100%;
+  height: 340rpx;
+  margin-bottom: 15px;
+}
+.post-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
+}
+.post-content {
+  color: #666;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  letter-spacing: 2rpx;
+  line-height: 40rpx;
+}
+
+.post-like {
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  line-height: 16px;
+  margin-left: 20px;
+  align-items: center;
+}
+
+.post-like image {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.post-like text {
+  margin-right: 20px;
+}

@@ -4,10 +4,10 @@
     "pages/welcome/welcome"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ECC0A8",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Banana",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "style": "v2",
