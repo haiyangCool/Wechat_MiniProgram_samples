@@ -15,23 +15,28 @@
   </swiper>
   <view class="post-container">
 
+    <!-- 通过 mustache {{}} 语法绑定数据 -->
+    <!-- 视图层(wxml) 执行完 onShow 之后，逻辑层会受到一个 Notify 通知，随后逻辑层（js）
+    将 data对象已json的形式发送到view层（Send Initial Data）,视图层接收到数据后，开始渲染并显示初始化数据（First Render）,最终呈现 【参考微信官方给出的系统执行逻辑图】-->
+    <!-- 如果数据绑定发生在组件的属性中，比如：<image src="{{postImg}}"，我们需要在这样写
+    “{{}}”  把两个大括号包含在双引号中，否则小程序会报错-->
     <view class="post-author-data">
-      <image src="/image/post/watch.png"></image>
-      <text>2020年1月3日</text>
+      <image src="{{postData.headImg}}"></image>
+      <text>{{postData.object.date}}</text>
     </view>
 
-    <text class="post-title">小时候的冰糕和冰棍</text>
-    <image class="post-image" src="/image/post/contact.png" mode="aspectFit"></image>
-    <text class="post-content">以前的冰糕和冰棍就好像现在的老北京冰棍，颜色透明一毛或者5分钱一根，时过境迁……</text>
+    <text class="post-title">{{postData.title}}</text>
+    <image class="post-image" src="{{postData.postImg}}" mode="aspectFit"></image>
+    <text class="post-content">{{postData.content}}</text>
 
     
     <view class="post-like">
       <image src="/image/post/short.png"></image>
-      <text>99</text>
+      <text>{{postData.readNum}}</text>
       <image src="/image/post/watch.png"></image>
-      <text>12</text>
+      <text>{{postData.collectionNum.array[0]}}</text>
       <image src="/image/post/file.png"></image>
-      <text>10</text>
+      <text>{{postData.commentNum}}</text>
 
   </view>
 

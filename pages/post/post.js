@@ -4,7 +4,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    /* 初始化数据绑定*/
+    // object: {
+    //   date: "2020年1月3日",
+    // },
+    // title: "小时候的冰棍和雪糕",
+    // postImg: "/image/post/contact.png",
+    // headImg: "/image/post/watch.png",
+    // content: "以前的冰糕和冰棍就好像现在的老北京冰棍，颜色透明一毛或者5分钱一根，时过境迁……",
+    // readNum: 192,
+    // collectionNum: {
+    //     array:[111]
+    // },
+    // commentNum: 32,
   },
 
   /**
@@ -12,6 +24,43 @@ Page({
    */
   onLoad: function (options) {
     console.log("onload 页面加载")
+    // setData 更新数据
+    // this.setData({
+    //   /**
+    //    * title 会改变 data 中title的数据（小时候的冰棍和雪糕）
+    //   */
+    //   title: "其实这不是一个有关冰棍的文章",
+    //   /**
+    //    * key 也可以这么写“title”*/
+    //   "readNum": 120,
+    //   // 甚至这样
+    //   "collectionNum.array[0]": 2,
+
+    // }) 
+
+    // 通过setData 初始化数据
+    // 定义一个 数据jSON
+    var iceCreamData = {
+      object: {
+        date: "2020年1月3日",
+      },
+      title: "小时候的冰棍和雪糕",
+      postImg: "/image/post/contact.png",
+      headImg: "/image/post/watch.png",
+      content: "以前的冰糕和冰棍就好像现在的老北京冰棍，颜色透明一毛或者5分钱一根，时过境迁……",
+      readNum: 192,
+      collectionNum: {
+        array: [111]
+      },
+      commentNum: 32,
+    }
+    this.setData({
+      /**
+       * 因为在这里使用了 postData 作为 data 的替换，所以在 wxml中 需要把data也替换成 postData
+       * 负责页面没有数据 比如：postData.readNum 、postData.title
+      */
+      postData: iceCreamData 
+    })
   },
 
   /**
