@@ -13,53 +13,39 @@
       <image src="/image/post/watch.png"></image>
     </swiper-item>
   </swiper>
-  <view class="post-container">
+
+  <!-- 列表渲染 block 标签并没有实质上的意义，他并不是组件（仅为标签），它不会被渲染，可以理解为{}
+  ,它其中的元素将被重复渲染 -->
+  <!-- <block wx:for="{{postList}}" wx:for-item:"item" wx:for-index:"idx"></block>
+  如果不为wx:for-item 设置变量名，系统会默认为item ，所以去掉  wx:for-item:"item" 不会有影响 如果你使用了其他的名字 比如wx:for-item:"element" 把下面所有的item 都替换成 element-->
+  <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
+
+    <view class="post-container">
+      <view class="post-author-data">
+        <image src="{{item.headImg}}"></image>
+        <text>{{item.object.date}}</text>
+      </view>
+
+      <text class="post-title">{{item.title}}</text>
+      <image class="post-image" src="{{item.postImg}}" mode="aspectFit"></image>
+      <text class="post-content">{{item.content}}</text>
+
+      <view class="post-like">
+        <image src="/image/post/short.png"></image>
+        <text>{{item.readNum}}</text>
+        <image src="/image/post/watch.png"></image>
+        <text>{{item.collectionNum.array[0]}}</text>
+        <image src="/image/post/file.png"></image>
+        <text>{{item.commentNum}}</text>
+      </view>
+    </view>
+
+  </block>
+  <!-- <view class="post-container"> -->
 
     <!-- 通过 mustache {{}} 语法绑定数据 -->
     <!-- 视图层(wxml) 执行完 onShow 之后，逻辑层会受到一个 Notify 通知，随后逻辑层（js）
     将 data对象已json的形式发送到view层（Send Initial Data）,视图层接收到数据后，开始渲染并显示初始化数据（First Render）,最终呈现 【参考微信官方给出的系统执行逻辑图】-->
     <!-- 如果数据绑定发生在组件的属性中，比如：<image src="{{postImg}}"，我们需要在这样写
     “{{}}”  把两个大括号包含在双引号中，否则小程序会报错-->
-    <view class="post-author-data">
-      <image src="{{postData.headImg}}"></image>
-      <text>{{postData.object.date}}</text>
-    </view>
-
-    <text class="post-title">{{postData.title}}</text>
-    <image class="post-image" src="{{postData.postImg}}" mode="aspectFit"></image>
-    <text class="post-content">{{postData.content}}</text>
-
-    
-    <view class="post-like">
-      <image src="/image/post/short.png"></image>
-      <text>{{postData.readNum}}</text>
-      <image src="/image/post/watch.png"></image>
-      <text>{{postData.collectionNum.array[0]}}</text>
-      <image src="/image/post/file.png"></image>
-      <text>{{postData.commentNum}}</text>
-
-  </view>
-
-  <view class="post-container">
-      </view>
-
-        <view class="post-author-data">
-      <image src="/image/post/watch.png"></image>
-      <text>2019年12月31日</text>
-    </view>
-
-    <text class="post-title">河里游泳</text>
-    <image class="post-image" src="/image/post/watch.png" mode="aspectFit"></image>
-    <text class="post-content">小时候，家门前有一个清澈的小池塘，大人们在岸边洗着衣服，水中央一群小孩子在游泳,旁边漂浮着几个汽车的充气轮胎。</text>
-
-    
-    <view class="post-like">
-      <image src="/image/post/short.png"></image>
-      <text>109</text>
-      <image src="/image/post/watch.png"></image>
-      <text>32</text>
-      <image src="/image/post/file.png"></image>
-      <text>12</text>
-    </view>
-  </view>
 </view>

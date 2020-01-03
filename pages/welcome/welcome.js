@@ -7,6 +7,22 @@ Page({
     
   },
 
+  onComeIn: function(event) {
+    wx.navigateTo({
+      url: '../post/post',
+
+      success:function() {
+        console.log("success")
+      },
+      fail: function() {
+        console.log("faild")
+      },
+      complete: function() {
+        console.log("complete")
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
