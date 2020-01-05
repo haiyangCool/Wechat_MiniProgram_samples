@@ -28,22 +28,42 @@
 
 class DBPost {
 
-  constructor(url){
+  constructor(postId){
     this.storageKeyName = 'postList';
+    this.postId = postId;
   }
 
+  // 获取全部数据
   getAllPostData() {
     var cacheData = wx.getStorageSync(this.storageKeyName);
     if (!cacheData) {
+      console.log("缓存为空",cacheData);
       cacheData = wx.getStorageSync(this.storageKeyName);
       this.execSetStorageSync(cacheData);
     }
+    console.log("now缓存为空", cacheData);
+
     return cacheData;
   }
 
   // 保存或更新数据库数据
   execSetStorageSync(data) {
     wx.setStorageSync(this.storageKeyName, data);
+  }
+
+  // 获取对应文章id的详情数据
+  getPostItemById() {
+    var postDataList = this.getAllPostData();
+    var length = postDataList.length;
+    for (var i = 0; i < length; i++) {
+        if (postDataList[i].postId == this.postId) {
+          // 放回键值对数据
+          return {
+            index: i, // 列表中的第几篇文章
+            data: postDataList[i] // 文章数据
+          }
+        }
+    }
   }
 }
 

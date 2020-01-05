@@ -23,11 +23,12 @@ App({
     // })
     var cacheData = wx.getStorageSync('postList');
     if (!cacheData) {
-      console.log("缓存为空，加载新的缓存数据")
+      console.log("缓存为空")
       // 缓存不存在，设置缓存
       var dataObj = require('data/data.js')
       wx.clearStorageSync()
-      wx.setStorageSync('dataList', dataObj.postList)
+      console.log("缓存为空，加载新的缓存数据",dataObj.postList)
+      wx.setStorageSync('postList', dataObj.postList)
     }
 
     // 展示本地存储能力

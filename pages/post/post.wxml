@@ -22,7 +22,12 @@
   <!-- <block wx:for="{{postList}}" wx:for-item:"item" wx:for-index:"idx"></block>
   如果不为wx:for-item 设置变量名，系统会默认为item ，所以去掉  wx:for-item:"item" 不会有影响 如果你使用了其他的名字 比如wx:for-item:"element" 把下面所有的item 都替换成 element-->
   <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
-    <template is="postitemTpl" data="{{...item}}"/>
+
+    <!-- 像是template 或者block 上是无法捕获事件的，他们只是占位符，编译之后将消失（由具体的ui组件代替，所以不要直接在上面 catch 任何的时间），可以在外层添加一个view标签 -->
+    <!-- <template catchTap="comeInDetail" is="postitemTpl" data="{{...item}}"/> -->
+    <view catchtap="comeInDetail" data-post-id="{{item.postId}}">
+          <template is="postitemTpl" data="{{...item}}"/>
+    </view>
     <!-- <view class="post-container">
       <view class="post-author-data">
         <image src="{{item.headImg}}"></image>

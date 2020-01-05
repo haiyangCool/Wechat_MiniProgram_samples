@@ -4,8 +4,8 @@
   display: flex;
   margin: 20rpx 0 40rpx;
   background-color: #fff;
-  border-bottom:  1px solid #cdeded;
-  border-top: 1px solid #cdeded;
+  border-bottom:  1px solid lightgray;
+  /* border-top: 1px solid #cdeded; */
   padding-bottom: 5px;
 }
 

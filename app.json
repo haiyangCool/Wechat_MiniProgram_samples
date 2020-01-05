@@ -1,13 +1,12 @@
 {
   "pages": [
     "pages/welcome/welcome",
-    "pages/post/post"
+    "pages/post/post",
+    "pages/post/post-detail/post-detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Banana",
-    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "style": "v2",

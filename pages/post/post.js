@@ -24,6 +24,38 @@ Page({
     // commentNum: 32,
   },
 
+  comeInDetail(event) {
+
+    //  通过系统定义的 dataset 获取组件自定义的属性
+    /**
+     * event 事件是由 MINA 框架在组件上的事件传递时传递的参数，在event事件对象中，有一个currentTarget 代表事件绑定的当前组件， 其中重点是 dataset对象，dataset对象中包含当前组件中自定义的以 data-开头的自定义属性值，所以在event.currentTarget.dataset.postId 可以拿到当前组件的postid
+     * 组件自定义属性的命名规则
+     * 1、必须以 data- 开头
+     * 2、多个字符之间以 - 开头
+     * 3、单词中最好不要有大写字母，有的话，除了第一个外，其他的将会被转化为小写
+     * 4、很重要：取值时，在js中获取自定义的属性时，多个单词将被转化为驼峰命名
+     * 比如 我们定义的 属性 data-post-id 取值时，需要使用 postId ,否则取不到值
+     * 传递多个值时
+     *     url: 'post-detail/post-detail?id=&name='+postId+name,
+
+    */
+    var postId = event.currentTarget.dataset.postId;
+    console.log(" 文章id",postId);
+    wx.navigateTo({
+
+      // 跳转传值时，类似 get 请求
+      url: 'post-detail/post-detail?id='+postId,
+
+      success: function() {
+        console.log("success to detail")
+      },
+      fail: function() {
+        console.log("fail to detail")
+      }
+
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
