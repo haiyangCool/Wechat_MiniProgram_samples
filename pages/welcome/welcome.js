@@ -8,17 +8,18 @@ Page({
   },
 
   onComeIn: function(event) {
-    wx.navigateTo({
+    // 直接重定向 ，不使用 导航（navigateTo）
+    wx.redirectTo({
       url: '../post/post',
 
       success:function() {
-        console.log("success")
+        console.log("come in success")
       },
       fail: function() {
-        console.log("faild")
+        console.log("come in faild")
       },
       complete: function() {
-        console.log("complete")
+        console.log("come action complete")
       }
     })
   },

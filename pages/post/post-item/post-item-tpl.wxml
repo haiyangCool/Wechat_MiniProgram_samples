@@ -1,0 +1,26 @@
+<template name="postitemTpl">
+  <view class="post-container">
+      <view class="post-author-data">
+        <image src="{{headImg}}"></image>
+        <text>{{date}}</text>
+      </view>
+
+      <text class="post-title">{{title}}</text>
+      <image class="post-image" src="{{postImg}}" mode="aspectFit"></image>
+      <text class="post-content">{{content}}</text>
+
+      <view class="post-like">
+        <image src="/image/post/short.png"></image>
+        <text>{{readNum}}</text>
+        <image src="/image/post/watch.png"></image>
+        <text>{{collectionNum}}</text>
+        <image src="/image/post/file.png"></image>
+        <text>{{commentNum}}</text>
+      </view>
+    </view>
+</template>
+
+<!-- 使用文章 “模板”，但是小程序中只能通过 “模板”把响应的 UI 组件进行封装，js逻辑无法封装 
+为了使调用当不在依赖该模板参数定义的item, 小程序做了一个约定即： 调用方 在传数据的时候，使用（...任意名称的数据），在模板中 去掉具体的 item
+item.readNum 改为 readNum etc..
+-->

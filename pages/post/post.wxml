@@ -1,3 +1,6 @@
+<!-- 导入模板文件  -->
+<import src="post-item/post-item-tpl.wxml"/>
+
 <view class="container">
   <swiper indicator-dots="true" circular="true">
     <swiper-item>
@@ -19,11 +22,11 @@
   <!-- <block wx:for="{{postList}}" wx:for-item:"item" wx:for-index:"idx"></block>
   如果不为wx:for-item 设置变量名，系统会默认为item ，所以去掉  wx:for-item:"item" 不会有影响 如果你使用了其他的名字 比如wx:for-item:"element" 把下面所有的item 都替换成 element-->
   <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
-
-    <view class="post-container">
+    <template is="postitemTpl" data="{{...item}}"/>
+    <!-- <view class="post-container">
       <view class="post-author-data">
         <image src="{{item.headImg}}"></image>
-        <text>{{item.object.date}}</text>
+        <text>{{item.date}}</text>
       </view>
 
       <text class="post-title">{{item.title}}</text>
@@ -34,11 +37,11 @@
         <image src="/image/post/short.png"></image>
         <text>{{item.readNum}}</text>
         <image src="/image/post/watch.png"></image>
-        <text>{{item.collectionNum.array[0]}}</text>
+        <text>{{item.collectionNum}}</text>
         <image src="/image/post/file.png"></image>
         <text>{{item.commentNum}}</text>
       </view>
-    </view>
+    </view> -->
 
   </block>
   <!-- <view class="post-container"> -->
