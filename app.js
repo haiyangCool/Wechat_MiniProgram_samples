@@ -1,6 +1,35 @@
+// 引入本地数据模拟数据库缓存
+// var dataObj = require("data/data.js")
+
 //app.js
 App({
   onLaunch: function () {
+
+    // 使用同步方式缓存数据
+    // wx.setStorageSync('postList', dataObj.postList);
+
+    // wx.setStorage({
+    //   key: 'postList',
+    //   data: dataObj.postList,
+    //   success: function() {
+    //     console.log("缓存成功")
+    //   },
+    //   fail: function() {
+    //     console.log("缓存失败")
+    //   },
+    //   complete: function() {
+    //     console.log("完成")
+    //   }
+    // })
+    var cacheData = wx.getStorageSync('postList');
+    if (!cacheData) {
+      console.log("缓存为空，加载新的缓存数据")
+      // 缓存不存在，设置缓存
+      var dataObj = require('data/data.js')
+      wx.clearStorageSync()
+      wx.setStorageSync('dataList', dataObj.postList)
+    }
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

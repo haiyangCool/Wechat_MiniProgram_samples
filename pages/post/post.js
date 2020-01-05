@@ -1,5 +1,8 @@
 
-var dataObj = require("../../data/data.js");
+// var dataObj = require("../../data/data.js");
+// 使用数据库
+// var DBPost =  require('../../db/DBPost.js').DBPost;
+import {DBPost} from '../../db/DBPost.js';
 Page({
 
   /**
@@ -72,14 +75,15 @@ Page({
     //     commentNum: 64,
     //   }
     // ]
-    
+    var dbPost = new DBPost();
+
     this.setData({
       /**
        * 因为在这里使用了 postData 作为 data 的替换，所以在 wxml中 需要把data也替换成 postData
        * 负责页面没有数据 比如：postData.readNum 、postData.title
       */
-      postList: dataObj.postList 
-    })
+      postList: dbPost.getAllPostData()
+    });
   },
 
   /**
