@@ -1,0 +1,53 @@
+<!--pages/post/post-comment/post-comment.wxml-->
+<view class="comment-detail-box">
+  <!-- 评论显示 -->
+  <view class="comment-main-box">
+    <!-- 评论数 -->
+    <view class="comment-title">评论..{{comments.length}}</view>
+
+    <!-- 三种评论类型 文字 图片（可包含文字） 语音 -->
+    <block wx:for="{{comments}}" wx:for-item="item" wx:for-index="idx">
+      <view class="comment-item">
+        <!-- 头部 用户头像 、用户名 -->
+        <view class="comment-item-header">
+          <view class="left-avator">
+            <image class="image" src="{{item.avator}}"></image>
+          </view>
+          <view class="right-user">
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+        <!-- 评论主体 -->
+        <view class="comment-body">
+          <!-- 文字 -->
+          <view class="comment-text" wx:if="{{item.content.txt}}">
+            <text>{{item.content.txt}}</text>
+          </view>
+          <!-- 图片（带文字） -->
+          <view class="comment-image" wx:if="{{item.content.images.length!=0}}">
+              <block wx:for="{{item.content.images}}" wx:for-item="img">
+                <image src="{{img}}" mode="aspectFill"></image>
+              </block>
+          </view>
+          <!-- 音频 -->
+          <view class="comment-audio" wx:if="{{item.content.audio && item.content.audio.url}}">
+            <view class="comment-audio-item" data-url="{{item.content.audio.url}}" catchtap="playAudio"> 
+              <image src="/image/post/voice.png"></image>
+              <text> 13``</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>
+<!-- 发表评论 -->
+<view class="comment-publish">
+  <image class="voice-pub" src="/image/post/makevoice.png"></image>
+  <input class="input-text"></input>
+  <image class="add" src="/image/post/add.png"></image>
+  <view class="sendBox">
+    <text class="send" catchtap="sendMessage">发送</text>
+  </view>
+</view>

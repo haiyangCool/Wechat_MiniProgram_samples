@@ -14,6 +14,57 @@ var postList = [
     commentNum: 32,
     commentImg: "/image/post/comment.png",
     commentLightImg: "/image/post/commentLight.png",
+    comments: [{
+      avator: "/image/post/short.png",
+      name: "苏辙",
+      type: "text",
+      content: {
+        txt: "老哥，写的太好了",
+        images: null,
+        audio: null,
+      },
+    },{
+      avator: "/image/post/watch.png",
+      name: "苏洵",
+      type: "image",
+      content: {
+        txt: "臭小子，厉害了",
+        images: ["/image/post/file.png", "/image/post/watch.png", "/image/post/short.png"],
+        audio: null,
+      },
+        
+    },{
+      avator: "/image/post/file.png",
+      name: "路人甲",
+      type: "audio",
+      content: {
+        txt: null,
+        images: null,
+        audio: {url:"http://lurenjia.mp3",},
+      },
+      
+    },
+    {
+      avator: "/image/post/short.png",
+      name: "苏辙",
+      type: "text",
+      content: {
+        txt: "老哥，写的太好，忍不住又来了看看",
+        images: null,
+        audio: null,
+      },
+      }, {
+        avator: "/image/post/watch.png",
+        name: "苏洵",
+        type: "image",
+        content: {
+          txt: "臭小子,看你老弟来了又来，老子也来瞅瞅。",
+          images: ["/image/post/file.png"],
+          audio: null,
+        },
+
+      }
+    ],
     author: "苏轼",
     postId: 1,
     upStatus: true,
@@ -37,6 +88,35 @@ var postList = [
     commentNum: 64,
     commentImg: "/image/post/comment.png",
     commentLightImg: "/image/post/commentLight.png",
+    comments: [{
+      avator: "/image/post/watch.png",
+      name: "汪伦",
+      type: "text",
+      content: {
+        txt: "老铁，还记得您当年写的诗吗，桃花潭水深千尺，不及‘王伦’送我情",
+        images: null,
+        audio: null,
+      },
+    }, {
+      avator: "/image/post/file.png",
+      name: "杜甫",
+      type: "image",
+      content: {
+        txt: "男神，我们去修仙啊",
+        images: ["/image/post/file.png", "/image/post/watch.png", "/image/post/short.png"],
+        audio: null,
+      },
+      
+    }, {
+      avator: "/image/post/short.png",
+      name: "白居易",
+      type: "audio",
+      content: {
+        txt: null,
+        images: null,
+        audio: { url: "http://lurenjia.mp3", },
+      },
+  }],
     author: "李白",
     postId: 2,
     upStatus: false,

@@ -1,0 +1,170 @@
+/* pages/post/post-comment/post-comment.wxss */
+.comment-detail-box {
+  /* padding: 0px;
+  display: flex;
+  flex-direction: column; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: hidden;
+}
+
+.comment-main-box {
+  /* display: flex;
+  flex-direction: column; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 100rpx;
+  left: 0;
+  overflow-y: auto;
+}
+
+.comment-item {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.comment-title {
+
+  font-size: 60rpx;
+  margin: 20rpx;
+  color: black;
+  border-bottom: 1rpx solid lightgray;
+}
+
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid lightgray;
+}
+
+.comment-item-header {
+
+  display: flex;
+  flex-direction: row;
+  height: 64rpx;
+  align-items: center;
+}
+
+.left-avator {
+  height: 50rpx;
+  margin-right: 20rpx;
+  align-items: center;
+}
+
+.left-avator image{
+  width: 50rpx;
+  height: 50rpx;
+
+}
+
+.right-user {
+  font-size: 20rpx;
+}
+
+.comment-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-text {
+  font-size: 30rpx;
+  color: black;
+  margin: 22rpx 20rpx 22rpx 20rpx;
+  line-height: 30rpx;
+  letter-spacing: 2px;
+}
+
+.comment-image {
+  display: flex;
+  flex-direction: row;
+  margin: 0 20rpx 10rpx 20rpx;
+  align-items: center;
+}
+
+.comment-image image{
+  max-width: 32%;
+  width: 220rpx;
+  height: 220rpx;
+  margin-right: 10rpx;
+}
+
+.comment-audio-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.comment-audio-item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.comment-audio-item text {
+  color: lightskyblue;
+  font-size: 22rpx;
+}
+.comment-publish {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+}
+
+.comment-publish {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 ;
+  background-color: lightgray;
+}
+.voice-pub {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+}
+
+.input-text {
+  /* max-width: 65%; */
+  width: 260rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+  background-color: white;
+  place-content: "请输入……";
+}
+
+.add {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 10rpx;
+}
+
+.sendBox {
+
+  width: 164rpx;
+  height: 50rpx;
+  color: white;
+  margin-right: 10rpx;
+  border-radius: 5;
+  background-color: gray;
+  align-content: center;
+  text-align: center;
+}
+
+.send {
+  width: 164rpx;
+  height: 22rpx;
+  line-height: 20rpx;
+  font-size: 20rpx;
+  color: white;
+  align-content: center;
+  text-align: center;
+}

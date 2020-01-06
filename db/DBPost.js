@@ -115,6 +115,20 @@ class DBPost {
     return this.updataPostData('like');
   }
 
+  // 获取评论数据
+  getComments() {
+    var postData = this.getPostItemById(),
+      commentData = postData.data.comments;
+    
+    console.log("评论",commentData);
+    if (commentData) {
+      return commentData;
+    }else {
+      return null
+    }
+
+  }
+
 }
 
 export {DBPost}

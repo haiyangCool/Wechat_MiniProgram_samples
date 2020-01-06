@@ -33,6 +33,11 @@ Page({
   // 评论
   onComment: function(event) {
     console.log("评论");
+    // 跳转到评论页面
+    var postId = event.currentTarget.dataset.postId;
+    wx.navigateTo({
+      url: '../post-comment/post-comment?id='+postId,
+    })
   },
 
   // 收藏
@@ -94,7 +99,7 @@ Page({
     */
     console.log("标题");
     wx.setNavigationBarTitle({
-      title: "this.postData.data.title",
+      title: this.postData.data.title,
     })
   },
 
