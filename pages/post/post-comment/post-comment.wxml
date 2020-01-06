@@ -25,8 +25,8 @@
           </view>
           <!-- 图片（带文字） -->
           <view class="comment-image" wx:if="{{item.content.images.length!=0}}">
-              <block wx:for="{{item.content.images}}" wx:for-item="img">
-                <image src="{{img}}" mode="aspectFill"></image>
+              <block wx:for="{{item.content.images}}" wx:for-item="img" wx:for-index="imgIdx">
+                <image src="{{img}}" mode="aspectFill" catchtap="previewImg" data-comment-idx="{{idx}}" data-img-idx="{{imgIdx}}"></image>
               </block>
           </view>
           <!-- 音频 -->

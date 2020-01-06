@@ -11,6 +11,26 @@ Page({
 
   },
 
+  // 图片预览
+  previewImg: function(event) {
+
+    // 获取第几条评论index
+    var commentIndex = event.currentTarget.dataset.commentIdx;
+    // 第几章图片
+    var imageIndex = event.currentTarget.dataset.imgIdx;
+
+    var images = this.data.comments[commentIndex].content.images;
+
+    console.log("图片集",images);
+    wx:wx.previewImage({
+      current: images[imageIndex],
+      urls: images,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
