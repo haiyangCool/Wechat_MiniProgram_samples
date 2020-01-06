@@ -41,8 +41,6 @@ class DBPost {
       cacheData = wx.getStorageSync(this.storageKeyName);
       this.execSetStorageSync(cacheData);
     }
-    console.log("now缓存为空", cacheData);
-
     return cacheData;
   }
 
@@ -54,6 +52,7 @@ class DBPost {
   // 获取对应文章id的详情数据
   getPostItemById() {
     var postDataList = this.getAllPostData();
+    console.log("id = ", this.postId, "\n  postData = ",postDataList);
     var length = postDataList.length;
     for (var i = 0; i < length; i++) {
         if (postDataList[i].postId == this.postId) {
@@ -65,6 +64,57 @@ class DBPost {
         }
     }
   }
+
+  // 收藏文章
+  collect() {
+    return this.updataPostData('collect');
+  }
+  updataPostData(category) {
+    var itemData = this.getPostItemById(), 
+    postData = itemData.data, 
+    allPostData = this.getAllPostData();
+
+    switch (category) {
+
+        case "collect":
+          // 处理收藏
+          if (postData.collectionStatus) {
+            // 如果当前为收藏状态 取消收藏 计数 -1
+            postData.collectionNum --;
+            postData.collectionStatus = false;
+          }else {
+            postData.collectionNum++;
+            postData.collectionStatus = true;
+          }
+          break;
+        case "like": 
+          if (postData.upStatus) {
+            // 当前为赞状态，取消赞 计数 -1
+            postData.upNum--;
+            postData.upStatus = false;
+          }else {
+            postData.upNum++;
+            postData.upStatus = true;
+          }
+
+          break
+        default:
+          break;
+    }
+
+    allPostData[itemData.index] = postData;
+    console.log("after change = ", postData);
+
+    this.execSetStorageSync(allPostData);
+    console.log("all data = ",allPostData);
+    return postData;
+  }
+
+  // 点赞功能
+  like() {
+    return this.updataPostData('like');
+  }
+
 }
 
 export {DBPost}

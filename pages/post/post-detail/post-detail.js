@@ -9,6 +9,56 @@ Page({
   data: {
 
   },
+  /**
+   * 业务逻辑
+  */
+  // 喜欢点赞 Like
+  onLove: function(event) {
+    console.log("喜欢点赞");
+    var newPostData = this.dbPost.like();
+    this.setData({
+      'post.upNum': newPostData.upNum,
+      'post.upStatus': newPostData.upStatus,
+    });
+
+    // toast
+    wx.showToast({
+      title: newPostData.upStatus ? "点赞成功" : "取消赞",
+      duration: 1000,
+      icon: "success",
+      mask: true,
+    })
+  },
+
+  // 评论
+  onComment: function(event) {
+    console.log("评论");
+  },
+
+  // 收藏
+  onCollection: function(event) {
+    console.log("收藏");
+    // DBPost 的对象已经在 onLoad 函数中被保存在了this中，所以这里可以直接使用了
+    var newPostData = this.dbPost.collect();
+    // 重新绑定数据，这里要注意，不需要把整个的数据全部更新，只需要有选择的更新变动数据即可
+    this.setData ({
+      'post.collectionStatus': newPostData.collectionStatus,
+      'post.collectionNum': newPostData.collectionNum,
+    });
+
+    /** toast
+     * title : 用来显示一个标题
+     * duration： 显示时间
+     * icon: "success" 和 “loading” 两种， success 显示系统定义的 对号，loading 显示菊花
+     * mask: 默认为false, true 时，作为蒙层，以防后边的视图接收点击事件，造成误操作
+     * */ 
+    wx.showToast({
+      title: newPostData.collectionStatus ? "收藏成功" : "取消收藏",
+      duration: 1000,
+      icon: "success",
+      mask: true,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -16,7 +66,7 @@ Page({
   onLoad: function (options) {
     // 这里的id变量名必须和传递过来的变量名一致
     var id = options.id;
-    console.log("详情文章 id = name = ",id);
+    console.log("详情文章 id  = ",id);
 
     // 使用new 实例化 DBPost时，直接保存到this中，以后直接使用this.dbPost即可引用该对象
     this.dbPost = new DBPost(id);
@@ -44,7 +94,7 @@ Page({
     */
     console.log("标题");
     wx.setNavigationBarTitle({
-      title: this.postData.data.title,
+      title: "this.postData.data.title",
     })
   },
 
