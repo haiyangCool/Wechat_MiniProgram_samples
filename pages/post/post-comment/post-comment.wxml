@@ -45,7 +45,7 @@
 <!-- 发表评论 -->
 <view class="comment-publish">
   <image class="voice-pub" src="/image/post/makevoice.png"></image>
-  <input class="input-text"></input>
+  <input class="input-text" placeholder="说点什么吧"></input>
   <image class="add" src="/image/post/add.png"></image>
   <view class="sendBox">
     <text class="send" catchtap="sendMessage">发送</text>

@@ -133,12 +133,12 @@
 }
 
 .input-text {
-  /* max-width: 65%; */
-  width: 260rpx;
+  max-width: 65%;
+  width: 220px;
   height: 50rpx;
   margin-right: 10rpx;
   background-color: white;
-  place-content: "请输入……";
+  font-size: 22rpx;
 }
 
 .add {
@@ -156,7 +156,8 @@
   border-radius: 5;
   background-color: gray;
   align-content: center;
-  text-align: center;
+  text-align: center;  
+
 }
 
 .send {
