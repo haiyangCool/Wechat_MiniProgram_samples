@@ -8,7 +8,80 @@ Page({
    * 页面的初始数据
    */
   data: {
+    'useKeyboardFlag': true,
+  },
 
+  // 切换输入方式
+  switchInputType: function(event) {
+    this.setData({
+      useKeyboardFlag: !this.data.useKeyboardFlag,
+    });
+  },
+
+  // 输入事件
+  bindCommentInput: function(event) {
+    var inputTxt = event.detail.value;
+    console.log("文字变化",inputTxt);
+    this.data.keyboardInputValue = inputTxt;
+  },
+
+  // 发送
+  submitCommit: function(event) {
+    var txt = this.data.keyboardInputValue;
+    console.log("发送",txt);
+    // 测试代码  
+    /** Hard Code Test Code */
+    var testComment = {
+      avator: "/image/post/short.png",
+      name: "辛弃疾",
+      type: "text",
+      content: {
+        txt: "各位前辈好，我也赋诗一首吧，献丑了.\n 醉里挑灯看剑，梦回吹角连营。\n八百里分麾下炙，五十弦翻塞外声。沙场秋点兵。\n马作的卢飞快，弓如霹雳弦惊。\n了却君王天下事，赢得生前身后名。可怜白发生！",
+        images: null,
+        audio: null,
+      },
+    };
+
+    if (!testComment.content.txt) {
+      return;
+    }
+    // 首先写入缓存
+    this.dbpost.publishNewComment(testComment);
+    // 弹框
+    this.showCommentSuccessToast();
+    // 重新绑定评论数据
+    this.reBindCommentData()
+    // 重置所有状态
+    this.resetAllDefaultStatus();
+  },
+
+  /**重置所有状态*/
+  resetAllDefaultStatus: function() {
+    // 清空输入框 需要在输入框input中定义一个字段接收 显示的数据，这里使用value="{{keyboardInputValue}}" 
+    this.setData({
+      'keyboardInputValue': '',
+    })
+  },
+
+  /**
+   * 在小程序开发中和HTML 开发有所不同，小程序中并没有 Dom 树，数据绑定是单向的，每次更新数据
+   * 都需要重新绑定
+  */
+  reBindCommentData: function() {
+
+    var comments = this.dbpost.getComments();
+    this.setData({
+      'comments': comments,
+    })
+  },
+
+  // 写评论成功后弹窗
+  showCommentSuccessToast: function() {
+    wx.showToast({
+      title: '发布成功',
+      icon:'success',
+      duration: 1000,
+    })
   },
 
   // 图片预览
@@ -45,8 +118,6 @@ Page({
 
       'comments': commentData,
     });
-
-
   },
 
   /**

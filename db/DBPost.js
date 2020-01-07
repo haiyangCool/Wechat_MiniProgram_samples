@@ -69,7 +69,7 @@ class DBPost {
   collect() {
     return this.updataPostData('collect');
   }
-  updataPostData(category) {
+  updataPostData(category, newComment) {
     var itemData = this.getPostItemById(), 
     postData = itemData.data, 
     allPostData = this.getAllPostData();
@@ -96,8 +96,11 @@ class DBPost {
             postData.upNum++;
             postData.upStatus = true;
           }
-
-          break
+          break;
+        case "comment":
+          postData.comments.push(newComment);
+          postData.commentNum++;
+          break;
         default:
           break;
     }
@@ -127,6 +130,11 @@ class DBPost {
       return null
     }
 
+  }
+
+  // 发表评论
+  publishNewComment(newComment) {
+    return this.updataPostData('comment',newComment);
   }
 
 }

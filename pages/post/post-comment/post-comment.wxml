@@ -43,11 +43,30 @@
 
 </view>
 <!-- 发表评论 -->
-<view class="comment-publish">
+<!-- <view class="comment-publish">
   <image class="voice-pub" src="/image/post/makevoice.png"></image>
   <input class="input-text" placeholder="说点什么吧"></input>
   <image class="add" src="/image/post/add.png"></image>
   <view class="sendBox">
     <text class="send" catchtap="sendMessage">发送</text>
+  </view>
+</view> -->
+<!-- 改写评论框 -->
+<view class="input-box">
+  <view class="send-msg-box">
+    <!-- 语音 -->
+    <view hidden="{{useKeyboardFlag}}" class="input-item">
+      <image src="/image/post/makevoice.png" class="comment-icon keyboard-icon" catchtap="switchInputType"></image>
+      <input class="input speak-input{{recordingClass}}" value="按住说话" disabled="disable" catchtouchstart="recordStart" catchtouchend="recordEnd"></input>
+    </view>
+    <!-- 文字 -->
+    <view hidden="{{!useKeyboardFlag}}" class="input-item">
+      <image class="comment-icon keyboard-icon" src="/image/post/textinput.png" catchtap="switchInputType"></image>
+      <input class="input keyboard-input" bindinput="bindCommentInput" value="{{keyboardInputValue}}" placeholder="请说点什么吧…"></input>
+    </view>
+    <!-- 更多 -->
+    <image class="comment-icon add-icon" src="/image/post/add.png" catchtap="sendMoreMessage"></image>
+  <!-- 发送按钮 -->
+    <view class="submit-btn" catchtap="submitCommit">发送</view>
   </view>
 </view>
