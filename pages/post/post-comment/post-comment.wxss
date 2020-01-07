@@ -189,7 +189,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 20rpx 0;
+  /* padding: 20rpx 0; */
 }
 
 /* 更多 语音和图片选择 */
@@ -275,13 +275,15 @@
   color: white;
 }
 
-.send-more-box .nore-btn-item {
-  display: inline-block;
+/*  more 更多 */
+.send-more-box .more-btn-item {
+  display: inline-block; 
   width: 110rpx;
   height: 145rpx;
   margin-right: 35rpx;
   text-align: center;
 }
+
 
 .more-btn-main{
   width: 100%;

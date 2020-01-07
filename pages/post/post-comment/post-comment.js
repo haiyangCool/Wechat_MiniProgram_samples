@@ -8,7 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 控制 语音与文字切换输入
     'useKeyboardFlag': true,
+    // 输入框的初始值
+    'keyboardInputValue':"",
+    // 图片/拍照UI
+    'sendMoreMsgFlag':false,
   },
 
   // 切换输入方式
@@ -60,6 +65,15 @@ Page({
     // 清空输入框 需要在输入框input中定义一个字段接收 显示的数据，这里使用value="{{keyboardInputValue}}" 
     this.setData({
       'keyboardInputValue': '',
+    })
+  },
+
+  /** 显示、隐藏 发送更多内容UI
+   * 
+  */
+  sendMoreMessage: function() {
+    this.setData({
+      'sendMoreMsgFlag': !this.data.sendMoreMsgFlag,
     })
   },
 

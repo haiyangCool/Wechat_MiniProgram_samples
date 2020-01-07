@@ -62,11 +62,50 @@
     <!-- 文字 -->
     <view hidden="{{!useKeyboardFlag}}" class="input-item">
       <image class="comment-icon keyboard-icon" src="/image/post/textinput.png" catchtap="switchInputType"></image>
-      <input class="input keyboard-input" bindinput="bindCommentInput" value="{{keyboardInputValue}}" placeholder="请说点什么吧…"></input>
+      <!-- 通过 bindConfirm 响应键盘上 完成（return）键事件，即发表评论操作 -->
+      <input class="input keyboard-input" bindinput="bindCommentInput" bindconfirm="submitCommit" value="{{keyboardInputValue}}" placeholder="请说点什么吧…"></input>
     </view>
     <!-- 更多 -->
     <image class="comment-icon add-icon" src="/image/post/add.png" catchtap="sendMoreMessage"></image>
   <!-- 发送按钮 -->
     <view class="submit-btn" catchtap="submitCommit">发送</view>
+  </view>
+
+  <!-- 发布图片和拍照UI -->
+  <view class="send-more-box" hidden="{{!sendMoreMsgFlag}}">
+    <!-- 选择图片和拍照的按钮 -->
+    <view class="send-more-btn-main">
+      <!-- 选择照片 -->
+      <view class="more-btn-item" catchtap="chooseImage" data-category="album">
+        <view class="more-btn-main">
+          <image src="/image/post/album.png"></image>
+        </view>
+        <text>照片</text>
+      </view>
+
+      <!-- 拍照 -->
+      <view class="more-btn-item" catchtap="chooseImage" data-category="camera">
+        <view class="more-btn-main">
+          <image src="/image/post/camera.png"></image>
+        </view>
+        <text>拍照</text>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 显示已经选择的图片 -->
+  <view class="send-more-result-main" hidden="{{chooseFiles.length==0}}">
+    <block wx:for="{{chooseFiles}}" wx:for-index="idx">
+
+      <!-- 如果删除其中一张图片，需要为该图片在左上角打上tag -->
+      <view class="file-box{{deleteIndex==idx?'deleting':''}}">
+        <view class="img-box">
+          <image src="{{item}}" mode="aspectFill"></image>
+          <icon class="remove-icon" type="cancel" size="23" color="#B2B2B2" catchtap="deleteImage" data-idx="{{idx}}"></icon>
+        </view>
+      </view>
+
+    </block>
   </view>
 </view>
