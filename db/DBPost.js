@@ -101,6 +101,10 @@ class DBPost {
           postData.comments.push(newComment);
           postData.commentNum++;
           break;
+
+        case "reading":
+          postData.readNum++;
+          break;
         default:
           break;
     }
@@ -135,6 +139,11 @@ class DBPost {
   // 发表评论
   publishNewComment(newComment) {
     return this.updataPostData('comment',newComment);
+  }
+
+  // 阅读量自增
+  addReadingNum() {
+    this.updataPostData('reading');
   }
 
 }

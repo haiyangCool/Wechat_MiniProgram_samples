@@ -50,7 +50,6 @@ Page({
       'post.collectionStatus': newPostData.collectionStatus,
       'post.collectionNum': newPostData.collectionNum,
     });
-
     /** toast
      * title : 用来显示一个标题
      * duration： 显示时间
@@ -65,13 +64,20 @@ Page({
     })
   },
 
+  // 阅读量自增
+  incrementReadNum: function (event) {
+    this.dbPost.addReadingNum();
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     // 这里的id变量名必须和传递过来的变量名一致
     var id = options.id;
-    console.log("详情文章 id  = ",id);
+    console.log("onLoad 详情文章 id  = ",id);
+  
 
     // 使用new 实例化 DBPost时，直接保存到this中，以后直接使用this.dbPost即可引用该对象
     this.dbPost = new DBPost(id);
@@ -83,6 +89,9 @@ Page({
     this.setData({
       post: this.postData.data,
     });
+
+    // 页面每打开一次添加一次阅读计数 onLoad 函数在page的整个声明周期只会执行一次
+    this.incrementReadNum();
   },
 
   /**
@@ -102,6 +111,7 @@ Page({
       title: this.postData.data.title,
     })
   },
+
 
   /**
    * 生命周期函数--监听页面显示
