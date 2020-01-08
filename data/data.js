@@ -60,7 +60,7 @@ var postList = [
         content: {
           txt: "臭小子,看你老弟来了又来，老子也来瞅瞅。",
           images: ["/image/post/file.png"],
-          audio: null,
+          audio: {url:"http://test",timeLen:13},
         },
 
       }

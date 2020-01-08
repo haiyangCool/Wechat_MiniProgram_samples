@@ -57,7 +57,7 @@
     <!-- 语音 -->
     <view hidden="{{useKeyboardFlag}}" class="input-item">
       <image src="/image/post/makevoice.png" class="comment-icon keyboard-icon" catchtap="switchInputType"></image>
-      <input class="input speak-input{{recordingClass}}" value="按住说话" disabled="disable" catchtouchstart="recordStart" catchtouchend="recordEnd"></input>
+      <input class="input speak-input{{recodingClass}}" value="按住说话" disabled="disable" catchtouchstart="recordStart" catchtouchend="recordEnd"></input>
     </view>
     <!-- 文字 -->
     <view hidden="{{!useKeyboardFlag}}" class="input-item">
