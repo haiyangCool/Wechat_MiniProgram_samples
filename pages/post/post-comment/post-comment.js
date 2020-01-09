@@ -268,7 +268,7 @@ Page({
   */
   playAudio: function(event) {
     var voiceUrl = event.currentTarget.dataset.url;
-
+    
     // 如果正在播放 就暂停
     if (voiceUrl == this.data.currentPlayUrl) {
       wx.pauseVoice();

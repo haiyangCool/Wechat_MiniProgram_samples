@@ -65,6 +65,11 @@ var postList = [
 
       }
     ],
+    music: {
+      url: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+      title: "鸟语花香",
+      coverImageUrl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578487631979&di=080cbb0139a6356202c6d118fbbd113f&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1503%2F08%2Fc14%2F3618369_3618369_1425815209098.jpg",
+    },
     author: "苏轼",
     postId: 1,
     upStatus: true,
@@ -117,6 +122,11 @@ var postList = [
         audio: { url: "http://lurenjia.mp3", },
       },
   }],
+    music: {
+      url: "http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4",
+      title: "TED",
+      coverImageUrl: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578487814045&di=52c78c839388b5fc81ec48b16c4dc5e9&imgtype=0&src=http%3A%2F%2Fa1874.phobos.apple.com%2Fus%2Fr30%2FPurple6%2Fv4%2Ffb%2F5c%2Fa0%2Ffb5ca01f-6ca7-7e76-3871-7e61a362ba34%2Fmzl.qvqmfkop.jpg",
+    },
     author: "李白",
     postId: 2,
     upStatus: false,

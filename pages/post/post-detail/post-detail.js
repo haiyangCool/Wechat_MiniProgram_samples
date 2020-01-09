@@ -1,17 +1,50 @@
 // pages/post/post-detail/post-detail.js
 
 import {DBPost} from '../../../db/DBPost.js';
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    'isPlayingMusic':false,
   },
   /**
    * 业务逻辑
   */
+  // 播放背景音乐
+  onMusicTap: function(event) {
+    var isPlaying = this.data.isPlayingMusic;
+    if (isPlaying) {
+      // 暂停
+      wx.pauseBackgroundAudio();
+      this.setData({
+
+        isPlayingMusic: false,
+      })
+
+    }else{
+      var postData = this.dbPost.getPostItemById();
+      var musicData = postData.data.music;
+      console.log("音频信息 ", musicData);
+      // 播放
+      wx.playBackgroundAudio({
+        dataUrl: musicData.url,
+        title: musicData.title,
+        coverImgUrl: musicData.coverImgUrl,
+      })
+      this.setData({
+        musicId: musicData.postId,
+        isPlayingMusic: true,
+      })
+
+      app.globalData.g_currentPlayingMusicId = musicData.postId;
+    }
+
+
+  },
+
   // 喜欢点赞 Like
   onLove: function(event) {
     console.log("喜欢点赞");
@@ -70,6 +103,41 @@ Page({
 
   },
 
+  /** 添加播放监听
+   * 
+  */
+  setMusicMonitor: function(event) {
+    var that = this;
+    wx.onBackgroundAudioPlay(function() {
+      console.log("背景音乐播放")
+    })
+    wx.onBackgroundAudioPause(function() {
+      console.log("背景音乐暂停")
+    })
+
+    wx.onBackgroundAudioStop(function() {
+      console.log("背景音乐结束")
+      that.setData({
+        isPlayingMusic:false,
+      })
+      app.globalData.g_isPlayingMusic = false;
+      app.globalData.g_currentPlayingMusicId = null;
+    })
+  },
+
+  // 初始播放状态
+  initPlayStatu: function(event) {
+    var isPlay = app.globalData.g_isPlayingMusic;
+    var musicId = app.globalData.g_currentPlayingMusicId;
+    if (isPlay) {
+      this.setData({
+        isPlayingMusic: true,
+      })
+    }
+    console.log("播放状态",isPlay+"\n id",musicId);
+ 
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -92,6 +160,10 @@ Page({
 
     // 页面每打开一次添加一次阅读计数 onLoad 函数在page的整个声明周期只会执行一次
     this.incrementReadNum();
+    // 初始播放状态
+    this.initPlayStatu();
+    // 添加播放监听
+    this.setMusicMonitor();
   },
 
   /**
@@ -131,7 +203,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.stopBackgroundAudio();
   },
 
   /**

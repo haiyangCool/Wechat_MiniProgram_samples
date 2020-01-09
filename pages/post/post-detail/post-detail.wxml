@@ -2,6 +2,10 @@
 <view class="container">
 
   <image class="head-image" src="{{post.postImg}}"></image>
+
+  <!-- 添加背景音乐图标 -->
+  <image class="music" catchtap="onMusicTap" src="{{isPlayingMusic?'/image/icon/music_pause.png':'/image/icon/music_start.png'}}" data-music-id="{{musicId}}"></image>
+
   <text class="title">{{post.title}}</text>
   <view class="author-date">
     <view class="author-box">

@@ -11,6 +11,22 @@
   height: 460rpx;
 }
 
+.music {
+  width: 110rpx;
+  height: 110rpx;
+  position: absolute;
+  /* left 和 margin-left 配合使该图片水平居中
+  left: 50%; 是整个图片 在 中轴线 左边
+  margin-left: -51rpx; 使图片向左偏移整个图片的一半
+   */
+  left: 50%;
+  margin-left: -51rpx;
+  /* (460-110)/2 */
+  margin-top: 175rpx;
+  opacity: 0.9;
+}
+
+
 .title {
   width: 96%;
   font-size: 20px;
