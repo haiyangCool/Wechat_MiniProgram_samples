@@ -2,18 +2,18 @@
 <import src="post-item/post-item-tpl.wxml"/>
 
 <view class="container">
-  <swiper indicator-dots="true" circular="true">
+  <swiper indicator-dots="true" circular="true" catchtap="looperTap">
     <swiper-item>
-      <image src="/image/post/contact.png" mode="aspectFill"></image>
+      <image src="/image/post/contact.png" mode="aspectFill" data-post-id="1"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/image/post/file.png"></image>
+      <image src="/image/post/file.png" data-post-id="2"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/image/post/short.png"></image>
+      <image src="/image/post/short.png" data-post-id="1"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/image/post/watch.png"></image>
+      <image src="/image/post/watch.png" data-post-id="2"></image>
     </swiper-item>
   </swiper>
 

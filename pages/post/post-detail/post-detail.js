@@ -45,14 +45,36 @@ Page({
 
   },
 
+  // 创建点赞动画的animation
+  createAnimation: function() {
+    var likeAnimation = wx.createAnimation({
+      timingFunction: "ease-in-ease-out"
+    })
+    this.likeAnimation = likeAnimation;
+  },
+
   // 喜欢点赞 Like
   onLove: function(event) {
     console.log("喜欢点赞");
-    var newPostData = this.dbPost.like();
+    var newPostData = this.dbPost.like(),
+      that = this;
     this.setData({
       'post.upNum': newPostData.upNum,
       'post.upStatus': newPostData.upStatus,
     });
+
+    // 点赞动画（使用小程序自有的动画组)
+    this.likeAnimation.scale(2).step();
+    this.setData({
+      likeAnimation: this.likeAnimation.export(),
+    })
+
+    setTimeout(function() {
+      this.likeAnimation.scale(1).step();
+      this.setData({
+        likeAnimation: this.likeAnimation.export(),
+      })
+    },300);
 
     // toast
     wx.showToast({
@@ -164,6 +186,8 @@ Page({
     this.initPlayStatu();
     // 添加播放监听
     this.setMusicMonitor();
+    // 创建动画
+    this.createAnimation();
   },
 
   /**

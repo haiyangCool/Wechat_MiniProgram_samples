@@ -56,6 +56,32 @@ Page({
     })
   },
 
+  // 轮播图点击
+  looperTap: function(event) {
+    /** 轮播图点击事件需要注意的地方
+     * 1、我们并不是在每个具体的item上添加点击事件监听，而是在 swiper 上添加一个点击监听
+     * 因为tap事件是可以传递的，所以他会最终传递到 swiper上
+     * 2、我们获取传递过来的属性值时：使用 event.target.***; 而不再使用 event.currentTarget
+     * 这里有点小的区别: currentTarget 指的是 当前响应者，而不是最初被点击的对象， target 指向最          初的响应者
+     * 
+    */
+    var id = event.target.dataset.postId;
+    console.log("文章的id=",id);
+
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id='+id,
+
+      success: function() {
+        console.log("success to")
+      },
+
+      fail: function() {
+        console.log("faild to")
+      }
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

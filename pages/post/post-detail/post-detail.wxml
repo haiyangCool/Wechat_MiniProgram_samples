@@ -20,8 +20,8 @@
 
 <view class="tool">
   <view class="tool-item" catchtap="onLove" data-post-id="{{post.postId}}">
-    <image wx:if="{{post.upStatus}}" src="{{post.upLightImg}}"/>
-    <image wx:else src="{{post.upImg}}" />
+    <image wx:if="{{post.upStatus}}" src="{{post.upLightImg}}" animation="{{likeAnimation}}"/>
+    <image wx:else src="{{post.upImg}}" animation="{{likeAnimation}}" />
     <text class="loveNumber">{{post.upNum}}</text>
   </view>
   <view class="tool-item" catchtap="onComment" data-post-id="{{post.postId}}">
